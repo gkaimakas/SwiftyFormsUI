@@ -12,7 +12,7 @@ import SwiftyForms
 import SwiftyFormsUI
 
 class ViewController: UIViewController {
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var tableView: FormTableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

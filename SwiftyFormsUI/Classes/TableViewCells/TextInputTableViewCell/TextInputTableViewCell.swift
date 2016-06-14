@@ -20,7 +20,13 @@ public class TextInputTableViewCell: UITableViewCell {
 	
 	public var input: TextInput? = nil {
 		didSet {
-			
+			if let input = input {
+				hintLabel.text = input.hint
+				
+				input.on(hint: { result in
+					self.hintLabel.text = result
+				})
+			}
 		}
 	}
 }
