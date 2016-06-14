@@ -166,12 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SwiftyFormsUI_Example" */;
 			buildPhases = (
-				5D0E12C590A03D4B7F6F6DE8 /* 📦 Check Pods Manifest.lock */,
+				5D0E12C590A03D4B7F6F6DE8 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				7EB156BFB06C68B4954FF377 /* 📦 Embed Pods Frameworks */,
-				9549313D5DD41B499C25F60D /* 📦 Copy Pods Resources */,
+				7EB156BFB06C68B4954FF377 /* [CP] Embed Pods Frameworks */,
+				9549313D5DD41B499C25F60D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,12 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SwiftyFormsUI_Tests" */;
 			buildPhases = (
-				297ED7B9467AF216B4FA6F79 /* 📦 Check Pods Manifest.lock */,
+				297ED7B9467AF216B4FA6F79 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				A604469D89BB176195082F7F /* 📦 Embed Pods Frameworks */,
-				BB1C2E5D05C2274E3D420AE6 /* 📦 Copy Pods Resources */,
+				A604469D89BB176195082F7F /* [CP] Embed Pods Frameworks */,
+				BB1C2E5D05C2274E3D420AE6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,14 +262,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		297ED7B9467AF216B4FA6F79 /* 📦 Check Pods Manifest.lock */ = {
+		297ED7B9467AF216B4FA6F79 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,14 +277,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5D0E12C590A03D4B7F6F6DE8 /* 📦 Check Pods Manifest.lock */ = {
+		5D0E12C590A03D4B7F6F6DE8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,14 +292,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7EB156BFB06C68B4954FF377 /* 📦 Embed Pods Frameworks */ = {
+		7EB156BFB06C68B4954FF377 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,14 +307,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyFormsUI_Example/Pods-SwiftyFormsUI_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9549313D5DD41B499C25F60D /* 📦 Copy Pods Resources */ = {
+		9549313D5DD41B499C25F60D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,14 +322,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyFormsUI_Example/Pods-SwiftyFormsUI_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A604469D89BB176195082F7F /* 📦 Embed Pods Frameworks */ = {
+		A604469D89BB176195082F7F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,14 +337,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyFormsUI_Tests/Pods-SwiftyFormsUI_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BB1C2E5D05C2274E3D420AE6 /* 📦 Copy Pods Resources */ = {
+		BB1C2E5D05C2274E3D420AE6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="119" id="jBO-0X-BW9" customClass="TextInputTableViewCell" customModule="SwiftyFormsUI">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jBO-0X-BW9" id="e6k-Kx-eGA">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="118.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-Uu-kY1">
+                        <rect key="frame" x="24" y="61.5" width="272" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iO8-rR-Pxk" customClass="TextInputField" customModule="SwiftyFormsUI">
+                        <rect key="frame" x="24" y="80" width="272" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vI8-Uu-kY1" firstAttribute="trailing" secondItem="iO8-rR-Pxk" secondAttribute="trailing" id="0On-gI-s68"/>
+                    <constraint firstItem="vI8-Uu-kY1" firstAttribute="leading" secondItem="iO8-rR-Pxk" secondAttribute="leading" id="MaK-gK-LqM"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="iO8-rR-Pxk" secondAttribute="bottom" id="RDe-Yx-AFz"/>
+                    <constraint firstItem="vI8-Uu-kY1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="e6k-Kx-eGA" secondAttribute="topMargin" id="Rrz-hZ-QaS"/>
+                    <constraint firstItem="iO8-rR-Pxk" firstAttribute="top" secondItem="vI8-Uu-kY1" secondAttribute="bottom" constant="4" id="ilr-ox-5Na"/>
+                    <constraint firstItem="iO8-rR-Pxk" firstAttribute="leading" secondItem="e6k-Kx-eGA" secondAttribute="leadingMargin" constant="16" id="jWQ-j5-i20"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="iO8-rR-Pxk" secondAttribute="trailing" constant="16" id="mHj-MQ-MuD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="hintLabel" destination="vI8-Uu-kY1" id="pGJ-en-Y8f"/>
+                <outlet property="textInputField" destination="iO8-rR-Pxk" id="kIb-P7-ZiG"/>
+            </connections>
+            <point key="canvasLocation" x="284" y="316.5"/>
+        </tableViewCell>
+    </objects>
+</document>
