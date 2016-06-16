@@ -41,5 +41,5 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
 
 	s.frameworks = 'UIKit'
-	s.dependency 'SwiftyForms'
+	s.dependency 'SwiftyForms', :podspec => 'https://github.com/gkaimakas/SwiftyForms/SwiftyForms.podspec'
 end
