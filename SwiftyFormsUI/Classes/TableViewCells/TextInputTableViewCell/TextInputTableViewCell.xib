@@ -16,13 +16,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI8-Uu-kY1">
-                        <rect key="frame" x="24" y="61.5" width="272" height="14.5"/>
+                        <rect key="frame" x="24" y="8" width="272" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iO8-rR-Pxk" customClass="TextInputField" customModule="SwiftyFormsUI">
-                        <rect key="frame" x="24" y="80" width="272" height="30"/>
+                        <rect key="frame" x="24" y="26.5" width="272" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -30,8 +30,8 @@
                 <constraints>
                     <constraint firstItem="vI8-Uu-kY1" firstAttribute="trailing" secondItem="iO8-rR-Pxk" secondAttribute="trailing" id="0On-gI-s68"/>
                     <constraint firstItem="vI8-Uu-kY1" firstAttribute="leading" secondItem="iO8-rR-Pxk" secondAttribute="leading" id="MaK-gK-LqM"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="iO8-rR-Pxk" secondAttribute="bottom" id="RDe-Yx-AFz"/>
-                    <constraint firstItem="vI8-Uu-kY1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="e6k-Kx-eGA" secondAttribute="topMargin" id="Rrz-hZ-QaS"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="iO8-rR-Pxk" secondAttribute="bottom" id="RDe-Yx-AFz"/>
+                    <constraint firstItem="vI8-Uu-kY1" firstAttribute="top" secondItem="e6k-Kx-eGA" secondAttribute="topMargin" id="Rrz-hZ-QaS"/>
                     <constraint firstItem="iO8-rR-Pxk" firstAttribute="top" secondItem="vI8-Uu-kY1" secondAttribute="bottom" constant="4" id="ilr-ox-5Na"/>
                     <constraint firstItem="iO8-rR-Pxk" firstAttribute="leading" secondItem="e6k-Kx-eGA" secondAttribute="leadingMargin" constant="16" id="jWQ-j5-i20"/>
                     <constraint firstAttribute="trailingMargin" secondItem="iO8-rR-Pxk" secondAttribute="trailing" constant="16" id="mHj-MQ-MuD"/>

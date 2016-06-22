@@ -13,6 +13,11 @@ import SwiftyFormsUI
 
 class ViewController: UIViewController {
 	@IBOutlet weak var tableView: FormTableView!
+	
+	var input: TextInput? = nil
+	
+	let form = Form<FormDataObject>(name: "Form")
+	
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,25 +28,50 @@ class ViewController: UIViewController {
 		tableView.estimatedRowHeight = 40.0
 		tableView.dataSource = self
 		tableView.delegate = self
+		
+		form.addSection(Section(name: "Main")
+			.addInput(TextInput(name: FormDataObject.FieldName)
+				.setHint(FormDataObject.FieldName)
+				.addValidationRule(Validator.required, message: "err_validation_required")
+				.addValidationRule(Validator.minLength(5), message: "err_validation_min_length")
+			)
+			.addInput(TextInput(name: FormDataObject.FieldNumber)
+				.setHint(FormDataObject.FieldNumber)
+				.addValidationRule(Validator.required, message: "err_validation_required")
+				.addValidationRule(Validator.minLength(5), message: "err_validation_min_length")
+			)
+		)
+		.on(submit: { form in
+			let dataObject = form.dataObject
+			print(dataObject)
+		})
+		
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	@IBAction func handleSubmit(sender: AnyObject) {
+		form.submit()
+	}
 }
 
 extension ViewController: UITableViewDataSource {
 	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-		return 1
+		return form.numberOfSections
 	}
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 10
+		return form.sectionAtIndex(section).numberOfInputs
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let input = form.sectionAtIndex(indexPath.section).inputAtIndex(indexPath.row) as! TextInput
+		
 		let cell = tableView.dequeueReusableCellWithIdentifier(TextInputTableViewCell.Identifier) as! TextInputTableViewCell
+		cell.input = input
+		
 		return cell
 	}
 }
