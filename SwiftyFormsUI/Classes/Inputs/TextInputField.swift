@@ -16,7 +16,7 @@ public class TextInputField: UITextField {
 			
 			self.delegate = self
 			
-			if let passwordInput = self.input as? PasswordInput {
+			if let _ = self.input as? PasswordInput {
 				secureTextEntry = true
 				keyboardType = .Default
 				inputView = nil
@@ -24,7 +24,7 @@ public class TextInputField: UITextField {
 				return
 			}
 			
-			if let emailInput = self.input as? EmailInput {
+			if let _ = self.input as? EmailInput {
 				secureTextEntry = false
 				keyboardType = .EmailAddress
 				inputView = nil
@@ -32,10 +32,32 @@ public class TextInputField: UITextField {
 				return
 			}
 			
-			if let PhoneInput = self.input as? PhoneInput {
+			if let _ = self.input as? PhoneInput {
 				secureTextEntry = false
 				keyboardType = UIKeyboardType.PhonePad
 				inputView = nil
+			}
+			
+			if let _ = self.input as? NumberInput {
+				secureTextEntry = false
+				keyboardType = UIKeyboardType.NumberPad
+				inputView = nil
+			}
+			
+			if let _ = self.input as? DateInput {
+				self.delegate = nil
+				let datePicker = UIDatePicker()
+				datePicker.datePickerMode = UIDatePickerMode.Date
+				datePicker.addTarget(self, action: #selector(TextInputField.handleDateSelection(_:)), forControlEvents: .ValueChanged)
+				inputView = datePicker
+			}
+			
+			if let _ = self.input as? SelectInput {
+				self.delegate = nil
+				let picker = UIPickerView()
+				picker.dataSource = self
+				picker.delegate = self
+				inputView = picker
 			}
 		}
 	}
@@ -65,3 +87,53 @@ extension TextInputField: UITextFieldDelegate {
 		
 	}
 }
+
+extension TextInputField: UIPickerViewDataSource {
+	public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+		return 1
+	}
+	
+	public func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		guard let input = input as? SelectInput else {
+			return 0
+		}
+		
+		return input.numberOfOptions
+	}
+}
+
+extension TextInputField: UIPickerViewDelegate {
+	public func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		guard let input = input as? SelectInput else {
+			return nil
+		}
+		
+		return input.optionAtIndex(row).description
+	}
+	
+	public func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		guard let input = input as? SelectInput else {
+			return
+		}
+		
+		input.selectOptionAtIndex(row)
+		self.text = input.optionAtIndex(input.selectedOptionIndex).description
+	}
+}
+
+extension TextInputField {
+	@objc func handleDateSelection(sender: UIDatePicker) {
+		guard let input = input as? DateInput else {
+			return
+		}
+		
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = input.dateFormat
+		let date = dateFormatter.stringFromDate(sender.date)
+		text = date
+		input.value = date
+	}
+}
+
+
+
