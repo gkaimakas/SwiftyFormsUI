@@ -40,9 +40,8 @@ public class SelectInputTableViewCell: UITableViewCell {
 			pickerView.selectRow(input.selectedOptionIndex, inComponent: 0, animated: true)
 		}
 	}
-	
 	func handleValidation() {
-		guard let input = self.input else {
+		guard let input = input else {
 			return
 		}
 		
@@ -62,8 +61,6 @@ public class SelectInputTableViewCell: UITableViewCell {
 	}
 	
 	func addErrorLabelWithError(error: String?) {
-		removeErrorLabel()
-		
 		guard let error = error else {
 			return
 		}
@@ -80,7 +77,7 @@ public class SelectInputTableViewCell: UITableViewCell {
 		errorLabel?.snp_makeConstraints() { make in
 			make.left.right.equalTo(hintLabel)
 			make.top.equalTo(pickerView.snp_bottom).inset(-4)
-			make.bottom.equalTo(pickerView.snp_bottom).inset(4)
+			make.bottom.equalTo(contentView.snp_bottom).inset(4)
 		}
 		
 		
@@ -91,8 +88,12 @@ public class SelectInputTableViewCell: UITableViewCell {
 	}
 	
 	func removeErrorLabel() {
-		errorLabel?.removeFromSuperview()
-		errorLabel = nil
+		guard let errorLabel = errorLabel else {
+			return
+		}
+		
+		self.errorLabel?.removeFromSuperview()
+		self.errorLabel = nil
 		
 		
 		self.tableView?.beginUpdates()

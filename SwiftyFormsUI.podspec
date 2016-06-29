@@ -42,5 +42,5 @@ Pod::Spec.new do |s|
 
 	s.frameworks = 'UIKit'
 	s.dependency 'SnapKit'
-	s.dependency 'SwiftyForms', '~> 0.3.4'
+	s.dependency 'SwiftyForms', '~> 0.3.5'
 end

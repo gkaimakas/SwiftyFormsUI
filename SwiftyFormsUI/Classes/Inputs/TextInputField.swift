@@ -14,34 +14,48 @@ public class TextInputField: UITextField {
 	public var input: TextInput? = nil {
 		didSet {
 			
-			self.delegate = self
-			
 			if let _ = self.input as? PasswordInput {
+				
+				self.delegate = self
 				secureTextEntry = true
 				keyboardType = .Default
 				inputView = nil
+				text = input?.value
 				
 				return
 			}
 			
 			if let _ = self.input as? EmailInput {
+				
+				self.delegate = self
 				secureTextEntry = false
 				keyboardType = .EmailAddress
 				inputView = nil
+				text = input?.value
 				
 				return
 			}
 			
 			if let _ = self.input as? PhoneInput {
+				
+				self.delegate = self
 				secureTextEntry = false
 				keyboardType = UIKeyboardType.PhonePad
 				inputView = nil
+				text = input?.value
+				
+				return
 			}
 			
 			if let _ = self.input as? NumberInput {
+				
+				self.delegate = self
 				secureTextEntry = false
 				keyboardType = UIKeyboardType.NumberPad
 				inputView = nil
+				text = input?.value
+				
+				return
 			}
 			
 			if let _ = self.input as? DateInput {
@@ -50,6 +64,20 @@ public class TextInputField: UITextField {
 				datePicker.datePickerMode = UIDatePickerMode.Date
 				datePicker.addTarget(self, action: #selector(TextInputField.handleDateSelection(_:)), forControlEvents: .ValueChanged)
 				inputView = datePicker
+				text = input?.value
+				
+				return
+			}
+			
+			if let _ = self.input as? TimeInput {
+				self.delegate = nil
+				let datePicker = UIDatePicker()
+				datePicker.datePickerMode = UIDatePickerMode.Time
+				datePicker.addTarget(self, action: #selector(TextInputField.handleTimeSelection(_:)), forControlEvents: .ValueChanged)
+				inputView = datePicker
+				text = input?.value
+				
+				return
 			}
 			
 			if let _ = self.input as? SelectInput {
@@ -58,6 +86,9 @@ public class TextInputField: UITextField {
 				picker.dataSource = self
 				picker.delegate = self
 				inputView = picker
+				text = input?.value
+				
+				return
 			}
 		}
 	}
@@ -132,6 +163,18 @@ extension TextInputField {
 		let date = dateFormatter.stringFromDate(sender.date)
 		text = date
 		input.value = date
+	}
+	
+	@objc func handleTimeSelection(sender: UIDatePicker) {
+		guard let input = input as? TimeInput else {
+			return
+		}
+		
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = input.timeFormat
+		let time = dateFormatter.stringFromDate(sender.date)
+		text = time
+		input.value = time
 	}
 }
 

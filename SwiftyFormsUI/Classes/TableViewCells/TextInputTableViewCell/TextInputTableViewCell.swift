@@ -58,8 +58,6 @@ public class TextInputTableViewCell: UITableViewCell {
 	}
 	
 	func addErrorLabelWithError(error: String?) {
-		removeErrorLabel()
-		
 		guard let error = error else {
 			return
 		}
@@ -87,8 +85,12 @@ public class TextInputTableViewCell: UITableViewCell {
 	}
 	
 	func removeErrorLabel() {
-		errorLabel?.removeFromSuperview()
-		errorLabel = nil
+		guard let errorLabel = errorLabel else {
+			return
+		}
+		
+		self.errorLabel?.removeFromSuperview()
+		self.errorLabel = nil
 		
 		
 		self.tableView?.beginUpdates()
