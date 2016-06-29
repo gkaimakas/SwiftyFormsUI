@@ -85,7 +85,7 @@ public class TextInputTableViewCell: UITableViewCell {
 	}
 	
 	func removeErrorLabel() {
-		guard let errorLabel = errorLabel else {
+		guard let _ = errorLabel else {
 			return
 		}
 		
