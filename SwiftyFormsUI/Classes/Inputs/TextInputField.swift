@@ -44,7 +44,7 @@ public class TextInputField: UITextField {
 			
 			if let _ = self.input as? NumberInput {
 				secureTextEntry = false
-				keyboardType = UIKeyboardType.NumberPad
+				keyboardType = UIKeyboardType.NumbersAndPunctuation
 				inputView = nil
 				
 				return

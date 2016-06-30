@@ -30,6 +30,7 @@
                         </date>
                     </datePicker>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="yHm-Wa-b9V" firstAttribute="leading" secondItem="lu0-a6-7xa" secondAttribute="leadingMargin" constant="-8" id="4qd-bM-PkD"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="yHm-Wa-b9V" secondAttribute="bottom" id="6bG-lx-ggq"/>
@@ -40,6 +41,7 @@
                     <constraint firstItem="fsq-jk-8hc" firstAttribute="top" secondItem="lu0-a6-7xa" secondAttribute="topMargin" id="psN-4z-YC2"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="290" y="302"/>
         </tableViewCell>
     </objects>

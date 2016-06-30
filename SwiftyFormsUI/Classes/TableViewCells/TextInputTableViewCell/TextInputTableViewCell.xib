@@ -26,6 +26,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="vI8-Uu-kY1" firstAttribute="trailing" secondItem="iO8-rR-Pxk" secondAttribute="trailing" id="0On-gI-s68"/>
                     <constraint firstItem="vI8-Uu-kY1" firstAttribute="leading" secondItem="iO8-rR-Pxk" secondAttribute="leading" id="MaK-gK-LqM"/>
@@ -36,6 +37,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="iO8-rR-Pxk" secondAttribute="trailing" constant="16" id="mHj-MQ-MuD"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="hintLabel" destination="vI8-Uu-kY1" id="pGJ-en-Y8f"/>
                 <outlet property="textInputField" destination="iO8-rR-Pxk" id="kIb-P7-ZiG"/>

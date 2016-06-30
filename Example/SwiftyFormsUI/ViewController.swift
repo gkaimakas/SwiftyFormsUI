@@ -106,6 +106,12 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		return nil
+	}
 	
+	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 0.1
+	}
 }
 
