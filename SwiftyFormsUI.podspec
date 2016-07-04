@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyFormsUI'
-  s.version          = '0.3.8'
+  s.version          = '0.3.9'
   s.summary          = 'UI elements for SwiftyForms'
 
 # This description is used to generate tags and improve search results.
@@ -42,5 +42,5 @@ Pod::Spec.new do |s|
 
 	s.frameworks = 'UIKit'
 	s.dependency 'SnapKit'
-	s.dependency 'SwiftyForms', '~> 0.3.8'
+	s.dependency 'SwiftyForms', '~> 0.3.9'
 end

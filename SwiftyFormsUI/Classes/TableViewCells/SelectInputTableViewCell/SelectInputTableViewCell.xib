@@ -20,7 +20,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zv2-oR-QQP">
+                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zv2-oR-QQP" customClass="SelectInputPickerView" customModule="SwiftyFormsUI" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="26.5" width="322" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="u2z-aC-cEF"/>
@@ -41,7 +41,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="hintLabel" destination="3iR-Gz-u2a" id="k2V-XQ-zd7"/>
-                <outlet property="pickerView" destination="Zv2-oR-QQP" id="XEq-G1-dev"/>
+                <outlet property="pickerView" destination="Zv2-oR-QQP" id="xvU-9L-kA1"/>
             </connections>
             <point key="canvasLocation" x="274" y="339"/>
         </tableViewCell>
