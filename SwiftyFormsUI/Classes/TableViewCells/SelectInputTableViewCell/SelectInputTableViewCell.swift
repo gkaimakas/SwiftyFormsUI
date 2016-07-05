@@ -32,7 +32,7 @@ public class SelectInputTableViewCell: UITableViewCell {
 					self.handleValidation()
 				})
 			
-			guard let input = input else {
+			guard let _ = input else {
 				return
 			}
 			
