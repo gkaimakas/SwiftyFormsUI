@@ -10,7 +10,14 @@ import Foundation
 import UIKit
 
 public class FormTableView: UITableView {
+	private enum KeyboardState: Int {
+		case Visible = 0
+		case NotVisible = 1
+	}
+	
 	private var originalBottonContentInset: CGFloat = 0
+	private var keyboardState: KeyboardState = .NotVisible
+	
 	public override init(frame: CGRect, style: UITableViewStyle) {
 		super.init(frame: frame, style: style)
 		handleKeyboard()
@@ -36,12 +43,17 @@ public class FormTableView: UITableView {
 		let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size
 		
 		if let keyboardSize = keyboardSize {
-			originalBottonContentInset = self.contentInset.bottom
+			
+			if keyboardState == .NotVisible {
+				originalBottonContentInset = self.contentInset.bottom
+			}
+			
 			self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: self.contentInset.left, bottom: 0 + keyboardSize.height, right: self.contentInset.right)
 		}
 		
 		UIView.animateWithDuration(0.5) { () -> Void in
 			self.layoutIfNeeded()
+			self.keyboardState = .Visible
 		}
 	}
 	
@@ -51,6 +63,7 @@ public class FormTableView: UITableView {
 		
 		UIView.animateWithDuration(0.5) { () -> Void in
 			self.layoutIfNeeded()
+			self.keyboardState = .NotVisible
 		}
 	}
 }
