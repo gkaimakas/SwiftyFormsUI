@@ -77,7 +77,10 @@ public class TextInputField: UITextField {
 				picker.dataSource = self
 				picker.delegate = self
 				inputView = picker
-				text = input.optionAtIndex(input.selectedOptionIndex).description
+				
+				if let selectedOptionIndex = input.selectedOptionIndex {
+					text = input.optionAtIndex(selectedOptionIndex).description
+				}
 				
 				input.on(add: { _ in
 						picker.reloadAllComponents()
@@ -146,7 +149,7 @@ extension TextInputField: UIPickerViewDelegate {
 		}
 		
 		input.selectOptionAtIndex(row)
-		self.text = input.optionAtIndex(input.selectedOptionIndex).description
+		self.text = input.optionAtIndex(row).description
 	}
 }
 

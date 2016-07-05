@@ -27,8 +27,9 @@ public class SelectInputPickerView: UIPickerView {
 					self.reloadAllComponents()
 				})
 			
-			
-			selectRow(input.selectedOptionIndex, inComponent: 0, animated: true)
+			if let selectedOptionIndex = input.selectedOptionIndex {
+				selectRow(selectedOptionIndex, inComponent: 0, animated: true)
+			}
 		}
 	}
 }
