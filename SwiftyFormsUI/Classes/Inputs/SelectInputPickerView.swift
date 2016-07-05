@@ -20,6 +20,14 @@ public class SelectInputPickerView: UIPickerView {
 			self.dataSource = self
 			self.delegate = self
 			
+			input.on(add: { _ in
+					self.reloadAllComponents()
+				})
+				.on(remove: { _ in
+					self.reloadAllComponents()
+				})
+			
+			
 			selectRow(input.selectedOptionIndex, inComponent: 0, animated: true)
 		}
 	}

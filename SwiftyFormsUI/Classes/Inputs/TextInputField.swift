@@ -16,6 +16,7 @@ public class TextInputField: UITextField {
 			
 			self.delegate = self
 			text = input?.value
+			inputView = nil
 			
 			
 			if let _ = self.input as? PasswordInput {
@@ -77,6 +78,13 @@ public class TextInputField: UITextField {
 				picker.delegate = self
 				inputView = picker
 				text = input.optionAtIndex(input.selectedOptionIndex).description
+				
+				input.on(add: { _ in
+						picker.reloadAllComponents()
+					})
+					.on(remove: { _ in
+						picker.reloadAllComponents()
+					})
 				
 				return
 			}
