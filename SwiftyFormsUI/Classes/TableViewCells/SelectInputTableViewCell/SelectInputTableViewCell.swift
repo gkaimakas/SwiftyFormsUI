@@ -25,7 +25,7 @@ open class SelectInputTableViewCell: UITableViewCell {
 			hintLabel.text = input?.hint
 			pickerView.input = input
 			
-			input?.on(hint: { result in
+			let _ = input?.on(hint: { result in
 					self.hintLabel.text = result
 				})
 				.on(value: { input in
@@ -72,10 +72,10 @@ open class SelectInputTableViewCell: UITableViewCell {
 		
 		contentView.addSubview(errorLabel!)
 		
-		errorLabel?.snp_makeConstraints() { make in
+		errorLabel?.snp.makeConstraints() { make in
 			make.left.right.equalTo(hintLabel)
-			make.top.equalTo(pickerView.snp_bottom).inset(-4)
-			make.bottom.equalTo(contentView.snp_bottom).inset(4)
+			make.top.equalTo(pickerView.snp.bottom).inset(-4)
+			make.bottom.equalTo(contentView.snp.bottom).inset(4)
 		}
 		
 		

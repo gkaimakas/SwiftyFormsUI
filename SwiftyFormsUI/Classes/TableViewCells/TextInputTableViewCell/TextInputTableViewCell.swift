@@ -26,7 +26,7 @@ open class TextInputTableViewCell: UITableViewCell {
 			hintLabel.text = input?.hint
 			textInputField.input = input
 			
-			input?.on(hint: { result in
+			let _ = input?.on(hint: { result in
 					self.hintLabel.text = result
 				})
 				.on(value: { input in
@@ -71,10 +71,10 @@ open class TextInputTableViewCell: UITableViewCell {
 		
 		contentView.addSubview(errorLabel!)
 		
-		errorLabel?.snp_makeConstraints() { make in
+		errorLabel?.snp.makeConstraints() { make in
 			make.left.right.equalTo(textInputField)
-			make.top.equalTo(textInputField.snp_bottom).inset(-4)
-			make.bottom.equalTo(contentView.snp_bottom).inset(4)
+			make.top.equalTo(textInputField.snp.bottom).inset(-4)
+			make.bottom.equalTo(contentView.snp.bottom).inset(4)
 		}
 		
 		
