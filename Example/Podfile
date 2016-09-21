@@ -4,11 +4,8 @@ target 'SwiftyFormsUI_Example' do
   pod 'SwiftyFormsUI', :path => '../'
 
   target 'SwiftyFormsUI_Tests' do
-    inherit! :search_paths
-
-    pod 'Quick', '~> 0.8'
-	pod 'Nimble', '~> 3.0'
-	pod 'FBSnapshotTestCase'
-	pod 'Nimble-Snapshots'
+	  inherit! :search_paths
+	  pod 'Quick', :git => 'https://github.com/Quick/Quick', :branch => 'swift-3.0'
+	  pod 'Nimble', :git => 'https://github.com/Quick/Nimble'
   end
 end

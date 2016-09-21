@@ -23,23 +23,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 		
-		tableView.registerNib(SelectInputTableViewCell.Nib, forCellReuseIdentifier: SelectInputTableViewCell.Identifier)
-		tableView.registerNib(TextInputTableViewCell.Nib, forCellReuseIdentifier: TextInputTableViewCell.Identifier)
+		tableView.register(SelectInputTableViewCell.Nib, forCellReuseIdentifier: SelectInputTableViewCell.Identifier)
+		tableView.register(TextInputTableViewCell.Nib, forCellReuseIdentifier: TextInputTableViewCell.Identifier)
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 40.0
 		tableView.dataSource = self
 		tableView.delegate = self
 		
-		form.addSection(Section(name: "Main")
+		let _ = form.addSection(Section(name: "Main")
 			.addInput(TextInput(name: FormDataObject.FieldName)
 				.setHint(FormDataObject.FieldName)
-				.addValidationRule(Validator.required, message: "err_validation_required")
-				.addValidationRule(Validator.minLength(5), message: "err_validation_min_length")
+				.addValidationRule(Validators.required(), message: "err_validation_required")
+				.addValidationRule(Validators.minLength(5), message: "err_validation_min_length")
 			)
 			.addInput(TextInput(name: FormDataObject.FieldNumber)
 				.setHint(FormDataObject.FieldNumber)
-				.addValidationRule(Validator.required, message: "err_validation_required")
-				.addValidationRule(Validator.minLength(5), message: "err_validation_min_length")
+				.addValidationRule(Validators.required(), message: "err_validation_required")
+				.addValidationRule(Validators.minLength(5), message: "err_validation_min_length")
 			)
 			.addInput(DateInput(name: "")
 				.setHint("Date")
@@ -70,26 +70,26 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	@IBAction func handleSubmit(sender: AnyObject) {
+	@IBAction func handleSubmit(_ sender: AnyObject) {
 		form.submit()
 	}
 }
 
 extension ViewController: UITableViewDataSource {
-	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	func numberOfSections(in tableView: UITableView) -> Int {
 		return form.numberOfSections
 	}
 	
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return form.sectionAtIndex(section).numberOfInputs
 	}
 	
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let input = form.sectionAtIndex(indexPath.section).inputAtIndex(indexPath.row)
 		
 		if let input = input as? TextInput {
 			
-			let cell = tableView.dequeueReusableCellWithIdentifier(TextInputTableViewCell.Identifier) as! TextInputTableViewCell
+			let cell = tableView.dequeueReusableCell(withIdentifier: TextInputTableViewCell.Identifier) as! TextInputTableViewCell
 			cell.input = input
 			
 			return cell
@@ -97,7 +97,7 @@ extension ViewController: UITableViewDataSource {
 		}
 		
 		if let input = input as? SelectInput {
-			let cell = tableView.dequeueReusableCellWithIdentifier(SelectInputTableViewCell.Identifier) as! SelectInputTableViewCell
+			let cell = tableView.dequeueReusableCell(withIdentifier: SelectInputTableViewCell.Identifier) as! SelectInputTableViewCell
 			cell.input = input
 			return cell
 		}
@@ -106,11 +106,11 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		return nil
 	}
 	
-	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return 0.1
 	}
 }

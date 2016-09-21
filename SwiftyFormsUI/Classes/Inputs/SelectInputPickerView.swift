@@ -10,8 +10,8 @@ import Foundation
 import SwiftyForms
 import UIKit
 
-public class SelectInputPickerView: UIPickerView {
-	public var input: SelectInput? = nil {
+open class SelectInputPickerView: UIPickerView {
+	open var input: SelectInput? = nil {
 		didSet {
 			guard let input = self.input else {
 				return
@@ -35,11 +35,11 @@ public class SelectInputPickerView: UIPickerView {
 }
 
 extension SelectInputPickerView: UIPickerViewDataSource {
-	public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+	public func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
 	}
 	
-	public func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+	public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		guard let input = input else {
 			return 0
 		}
@@ -49,11 +49,11 @@ extension SelectInputPickerView: UIPickerViewDataSource {
 }
 
 extension SelectInputPickerView: UIPickerViewDelegate {
-	public func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+	public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		return input?.optionAtIndex(row).description
 	}
 	
-	public func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+	public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		input?.selectOptionAtIndex(row)
 	}
 }

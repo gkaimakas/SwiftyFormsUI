@@ -11,17 +11,17 @@ import SnapKit
 import SwiftyForms
 import UIKit
 
-public class TextInputTableViewCell: UITableViewCell {
-	public static let Identifier = String(TextInputTableViewCell)
-	public static let Nib = UINib(nibName: String(TextInputTableViewCell), bundle: NSBundle(forClass: TextInputTableViewCell.self))
+open class TextInputTableViewCell: UITableViewCell {
+	open static let Identifier = String(describing: TextInputTableViewCell.self)
+	open static let Nib = UINib(nibName: String(describing: TextInputTableViewCell.self), bundle: Bundle(for: TextInputTableViewCell.self))
 	
 	
-	@IBOutlet public var hintLabel: UILabel!
-	@IBOutlet public var textInputField: TextInputField!
+	@IBOutlet open var hintLabel: UILabel!
+	@IBOutlet open var textInputField: TextInputField!
 	
-	private var errorLabel: UILabel? = nil
+	fileprivate var errorLabel: UILabel? = nil
 	
-	public var input: TextInput? = nil {
+	open var input: TextInput? = nil {
 		didSet {
 			hintLabel.text = input?.hint
 			textInputField.input = input
@@ -57,13 +57,13 @@ public class TextInputTableViewCell: UITableViewCell {
 		}
 	}
 	
-	func addErrorLabelWithError(error: String?) {
+	func addErrorLabelWithError(_ error: String?) {
 		guard let error = error else {
 			return
 		}
 		
 		errorLabel = UILabel()
-		errorLabel?.font = UIFont.systemFontOfSize(12, weight: UIFontWeightThin)
+		errorLabel?.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightThin)
 		
 		errorLabel?.text = error
 		errorLabel?.numberOfLines = 0

@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-public class FormTableView: UITableView {
-	private enum KeyboardState: Int {
-		case Visible = 0
-		case NotVisible = 1
+open class FormTableView: UITableView {
+	fileprivate enum KeyboardState: Int {
+		case visible = 0
+		case notVisible = 1
 	}
 	
-	private var originalBottonContentInset: CGFloat = 0
-	private var keyboardState: KeyboardState = .NotVisible
+	fileprivate var originalBottonContentInset: CGFloat = 0
+	fileprivate var keyboardState: KeyboardState = .notVisible
 	
 	public override init(frame: CGRect, style: UITableViewStyle) {
 		super.init(frame: frame, style: style)
@@ -28,42 +28,42 @@ public class FormTableView: UITableView {
 		handleKeyboard()
 	}
 	
-	public func handleKeyboard() {
+	open func handleKeyboard() {
 		
-		NSNotificationCenter.defaultCenter()
-			.addObserver(self, selector: #selector(FormTableView.handleKeyboardShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
+		NotificationCenter.default
+			.addObserver(self, selector: #selector(FormTableView.handleKeyboardShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
 		
-		NSNotificationCenter.defaultCenter()
-			.addObserver(self, selector: #selector(FormTableView.handleKeyboardHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+		NotificationCenter.default
+			.addObserver(self, selector: #selector(FormTableView.handleKeyboardHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 		
 	}
 	
-	@objc func handleKeyboardShow(notification: NSNotification){
+	@objc func handleKeyboardShow(_ notification: Notification){
 		self.layoutIfNeeded()
-		let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size
+		let keyboardSize: CGSize? = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size
 		
 		if let keyboardSize = keyboardSize {
 			
-			if keyboardState == .NotVisible {
+			if keyboardState == .notVisible {
 				originalBottonContentInset = self.contentInset.bottom
 			}
 			
 			self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: self.contentInset.left, bottom: 0 + keyboardSize.height, right: self.contentInset.right)
 		}
 		
-		UIView.animateWithDuration(0.5) { () -> Void in
+		UIView.animate(withDuration: 0.5, animations: { () -> Void in
 			self.layoutIfNeeded()
-			self.keyboardState = .Visible
-		}
+			self.keyboardState = .visible
+		}) 
 	}
 	
-	@objc func handleKeyboardHide(notification: NSNotification){
+	@objc func handleKeyboardHide(_ notification: Notification){
 		self.layoutIfNeeded()
 		self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: self.contentInset.left, bottom: self.originalBottonContentInset, right: self.contentInset.right)
 		
-		UIView.animateWithDuration(0.5) { () -> Void in
+		UIView.animate(withDuration: 0.5, animations: { () -> Void in
 			self.layoutIfNeeded()
-			self.keyboardState = .NotVisible
-		}
+			self.keyboardState = .notVisible
+		}) 
 	}
 }
