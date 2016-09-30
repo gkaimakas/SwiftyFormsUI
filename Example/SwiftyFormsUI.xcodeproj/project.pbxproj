@@ -218,10 +218,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 96LJ93WQBU;
 						LastSwiftMigration = 0800;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 96LJ93WQBU;
 						LastSwiftMigration = 0800;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -495,6 +497,7 @@
 			baseConfigurationReference = F84AA410D605526D56736E9E /* Pods-SwiftyFormsUI_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 96LJ93WQBU;
 				INFOPLIST_FILE = SwiftyFormsUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -510,6 +513,7 @@
 			baseConfigurationReference = 1F82C67B35533C34D55519C6 /* Pods-SwiftyFormsUI_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 96LJ93WQBU;
 				INFOPLIST_FILE = SwiftyFormsUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -524,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5975E84C1D66058287E368D7 /* Pods-SwiftyFormsUI_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 96LJ93WQBU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -544,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F98EFFD0A9E0BB89DE0B7963 /* Pods-SwiftyFormsUI_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 96LJ93WQBU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
