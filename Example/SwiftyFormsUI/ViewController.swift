@@ -12,106 +12,41 @@ import SwiftyForms
 import SwiftyFormsUI
 
 class ViewController: UIViewController {
-	@IBOutlet weak var tableView: FormTableView!
-	
-	var input: TextInput? = nil
+	@IBOutlet weak var selectInputPickerView: SelectInputPickerView!
+	@IBOutlet weak var button: UIButton!
 	
 	let form = Form(name: "Form")
-	
+	let input = SelectInput(name: "durationInput")
+		.addOptionWithDescription("option_gait_duration_15", value: "15")
+		.addOptionWithDescription("option_gait_duration_30", value: "30")
+		.addOptionWithDescription("option_gait_duration_60", value: "60")
+		.addOptionWithDescription("option_gait_duration_120", value: "120")
+		.addOptionWithDescription("option_gait_duration_180", value: "180")
+		.addOptionWithDescription("option_gait_duration_240", value: "240")
+		.addOptionWithDescription("option_gait_duration_300", value: "300")
+		.addOptionWithDescription("option_gait_duration_360", value: "360")
+		.addOptionWithDescription("option_gait_duration_420", value: "420")
+		.addOptionWithDescription("option_gait_duration_480", value: "480")
+		.addOptionWithDescription("option_gait_duration_540", value: "540")
+		.addOptionWithDescription("option_gait_duration_600", value: "600")
+		.addOptionWithDescription("option_gait_duration_660", value: "660")
+		.addOptionWithDescription("option_gait_duration_720", value: "720")
+		.addOptionWithDescription("option_gait_duration_780", value: "780")
+		.addOptionWithDescription("option_gait_duration_840", value: "840")
+		.addOptionWithDescription("option_gait_duration_900", value: "900")
+		.selectOptionAtIndex(1)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-		
-		tableView.register(SelectInputTableViewCell.Nib, forCellReuseIdentifier: SelectInputTableViewCell.Identifier)
-		tableView.register(TextInputTableViewCell.Nib, forCellReuseIdentifier: TextInputTableViewCell.Identifier)
-		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 40.0
-		tableView.dataSource = self
-		tableView.delegate = self
-		
-		let _ = form.addSection(Section(name: "Main")
-			.addInput(TextInput(name: FormDataObject.FieldName)
-				.setHint(FormDataObject.FieldName)
-				.addValidationRule(Validators.required(), message: "err_validation_required")
-				.addValidationRule(Validators.minLength(5), message: "err_validation_min_length")
-			)
-			.addInput(TextInput(name: FormDataObject.FieldNumber)
-				.setHint(FormDataObject.FieldNumber)
-				.addValidationRule(Validators.required(), message: "err_validation_required")
-				.addValidationRule(Validators.minLength(5), message: "err_validation_min_length")
-			)
-			.addInput(DateInput(name: "")
-				.setHint("Date")
-				.setDateFormat("dd--MM---yyyy")
-			)
-			.addInput(NumberInput(name: "")
-				.setHint("Number")
-			)
-			.addInput(SelectInput(name: "")
-				.setHint("Some hint")
-				.addOption(SelectInput.Option(description: "1", value: ""))
-				.addOption(SelectInput.Option(description: "2", value: ""))
-				.addOption(SelectInput.Option(description: "3", value: ""))
-				.addOption(SelectInput.Option(description: "4", value: ""))
-				.addOption(SelectInput.Option(description: "5", value: ""))
-				.addOption(SelectInput.Option(description: "6", value: ""))
-				.addOption(SelectInput.Option(description: "8", value: ""))
-				.addOption(SelectInput.Option(description: "7", value: ""))
-				.addOption(SelectInput.Option(description: "9", value: ""))
-			)
-		)
-		.on(submit: { form in
-		})
+
+		selectInputPickerView.input = input
 		
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-	@IBAction func handleSubmit(_ sender: AnyObject) {
-		form.submit()
-	}
-}
-
-extension ViewController: UITableViewDataSource {
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return form.numberOfSections
-	}
-	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return form.sectionAtIndex(section).numberOfInputs
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let input = form.sectionAtIndex(indexPath.section).inputAtIndex(indexPath.row)
-		
-		if let input = input as? TextInput {
-			
-			let cell = tableView.dequeueReusableCell(withIdentifier: TextInputTableViewCell.Identifier) as! TextInputTableViewCell
-			cell.input = input
-			
-			return cell
-			
-		}
-		
-		if let input = input as? SelectInput {
-			let cell = tableView.dequeueReusableCell(withIdentifier: SelectInputTableViewCell.Identifier) as! SelectInputTableViewCell
-			cell.input = input
-			return cell
-		}
-		return UITableViewCell()
-	}
-}
-
-extension ViewController: UITableViewDelegate {
-	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		return nil
-	}
-	
-	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 0.1
+	@IBAction func handle(_ sender: AnyObject) {
+		print(input.value)
 	}
 }
 

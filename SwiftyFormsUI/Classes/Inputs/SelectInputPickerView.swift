@@ -20,7 +20,7 @@ open class SelectInputPickerView: UIPickerView {
 			self.dataSource = self
 			self.delegate = self
 			
-			let _ = input.on(add: { _ in
+			input.on(add: { _ in
 					self.reloadAllComponents()
 				})
 				.on(remove: { _ in
@@ -54,6 +54,6 @@ extension SelectInputPickerView: UIPickerViewDelegate {
 	}
 	
 	public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		let _ = input?.selectOptionAtIndex(row)
+		input?.selectOptionAtIndex(row)
 	}
 }
