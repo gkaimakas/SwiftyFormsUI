@@ -72,7 +72,7 @@ open class TextInputField: UITextField {
 			}
 			
 			if let input = self.input as? SelectInput {
-				self.delegate = nil
+				self.delegate = self
 				let picker = UIPickerView()
 				picker.dataSource = self
 				picker.delegate = self
@@ -97,6 +97,10 @@ open class TextInputField: UITextField {
 
 extension TextInputField: UITextFieldDelegate {
 	public func textFieldDidEndEditing(_ textField: UITextField) {
+        if let _ = input as? SelectInput {
+            return
+        }
+        
 		guard let input = input else {
 			return
 		}
@@ -108,7 +112,10 @@ extension TextInputField: UITextFieldDelegate {
 		input.value = text
 	}
 	
-	public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let _ = input as? SelectInput {
+            return true
+        }
 		
 		if let input = input {
 			let newValue = (text! as NSString).replacingCharacters(in: range, with: string)
