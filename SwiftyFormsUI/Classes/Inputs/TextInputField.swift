@@ -119,7 +119,7 @@ extension TextInputField: UITextFieldDelegate {
 		
 	}
     
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if let input = self.input as? SelectInput,
             let pickerView = self.inputView as? UIPickerView {
             
@@ -130,6 +130,8 @@ extension TextInputField: UITextFieldDelegate {
                 pickerView.selectRow(0, inComponent: 0, animated: true)
             }
         }
+        
+        return true
     }
 }
 
