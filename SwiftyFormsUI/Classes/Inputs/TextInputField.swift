@@ -131,9 +131,11 @@ extension TextInputField: UITextFieldDelegate {
             let pickerView = self.inputView as? UIPickerView {
             
             if let selectedIndex = input.selectedOptionIndex {
+                textField.text = input.optionAtIndex(selectedIndex).description
                 pickerView.selectRow(selectedIndex, inComponent: 0, animated: true)
             } else {
                 input.selectOptionAtIndex(0)
+                textField.text = input.optionAtIndex(0).description
                 pickerView.selectRow(0, inComponent: 0, animated: true)
             }
         }
