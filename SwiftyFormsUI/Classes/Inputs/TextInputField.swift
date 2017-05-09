@@ -118,6 +118,19 @@ extension TextInputField: UITextFieldDelegate {
 		return true
 		
 	}
+    
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let input = self.input as? SelectInput,
+            let pickerView = self.inputView as? UIPickerView {
+            
+            if let selectedIndex = input.selectedOptionIndex {
+                pickerView.selectRow(selectedIndex, inComponent: 0, animated: true)
+            } else {
+                input.selectOptionAtIndex(0)
+                pickerView.selectRow(0, inComponent: 0, animated: true)
+            }
+        }
+    }
 }
 
 extension TextInputField: UIPickerViewDataSource {

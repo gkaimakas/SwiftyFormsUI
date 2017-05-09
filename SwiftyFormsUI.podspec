@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyFormsUI'
-  s.version          = '0.12.0'
+  s.version          = '0.12.1'
   s.summary          = 'UI elements for SwiftyForms'
 
 # This description is used to generate tags and improve search results.
